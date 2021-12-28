@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button, Col, Container, Form, FormControl, Row } from "react-bootstrap";
+import { Bet } from "../models/bet";
 
-export const PlaceBet = (props: {amounts: number[]}) => {
+export const PlaceBet = (props: {bets: Bet[]}) => {
 
     const calcTotal = (amounts: number[] ): number => { console.log(amounts); return amounts.reduce( (p, c) => p + c, 0)}
 
@@ -10,7 +11,7 @@ export const PlaceBet = (props: {amounts: number[]}) => {
         <Container>
             <Row>
                 <Col>
-                    Total: ${ calcTotal(props.amounts) }
+                    Total: ${ calcTotal(props.bets.map( (b) => b.amount)) }
                 </Col>
             </Row>
             <Row className="py-3">

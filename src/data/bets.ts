@@ -8,6 +8,7 @@ export const allBets: Bet[] = [
         odds: '1/2',
         pool: 100,
         description: 'Gender of the baby at birth.',
+        amount: 0,
         options: [
             {
                 name: 'Boy',
@@ -17,13 +18,15 @@ export const allBets: Bet[] = [
                 name: 'Girl',
                 label: 'Girl'
             }
-        ]
+        ],
+        
     },{
         name: 'BirthTime',
         displayName: 'Time of birth',
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -58,6 +61,7 @@ export const allBets: Bet[] = [
         odds: '1/6',
         pool: 100,
         description: 'The minute that the birth occurs, in 10 minute increments',
+        amount: 0,
         options: [
             {
                 name: '0',
@@ -90,6 +94,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -123,6 +128,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -156,6 +162,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -189,6 +196,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -222,6 +230,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -255,6 +264,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -288,6 +298,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -321,6 +332,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -354,6 +366,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
@@ -387,6 +400,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/6',
         pool: 100,
+        amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
             {
