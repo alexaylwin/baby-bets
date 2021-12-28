@@ -6,7 +6,7 @@ export type Bet = {
     pool: number,
     description: string,
     options: BetOption[],
-    selectedBet?: BetOption,
+    selectedBet?: string,
     amount: number
 }
 
