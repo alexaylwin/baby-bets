@@ -20,6 +20,7 @@ exports.handler = async (event, context) => {
                     TableName: "babybets_bets",
                     Item: {
                         betid: uuid,
+                        ticketNum: requestJSON.ticketNum,
                         bets: requestJSON.bets,
                         user: requestJSON.user
                     }
