@@ -8,8 +8,15 @@ import {
   Row,
 } from "react-bootstrap";
 import { Bet } from "../models/bet";
+import { UserInfo } from "../models/user";
 
-export const PlaceBet = (props: { bets: Bet[], onPlaceBets: () => void }) => {
+export const PlaceBet = (props: {
+  bets: Bet[];
+  onPlaceBets: () => void,
+  onChangeName: (name: string) => void,
+  onChangeEmail: (email: string) => void
+}) => {
+
   const calcTotal = (amounts: number[]): number => {
     return amounts.reduce((p, c) => p + c, 0);
   };
@@ -22,16 +29,22 @@ export const PlaceBet = (props: { bets: Bet[], onPlaceBets: () => void }) => {
         </Row>
         <Row className="py-3">
           <Col>
-            <FormControl id="name" placeholder="Name" size="sm"></FormControl>
+            <FormControl id="name" placeholder="Name" size="sm" onChange={(e) => props.onChangeName(e.target.value)}></FormControl>
             <Form.Control
               type="email"
               id="email"
               placeholder="Email"
               size="sm"
+              onChange={(e) => props.onChangeEmail(e.target.value) }
             ></Form.Control>
           </Col>
           <Col className="text-center">
-            <Button variant="success" size="lg" className="" onClick={props.onPlaceBets}>
+            <Button
+              variant="success"
+              size="lg"
+              className=""
+              onClick={props.onPlaceBets}
+            >
               Place Bets
             </Button>
           </Col>

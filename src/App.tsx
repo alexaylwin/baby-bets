@@ -7,10 +7,15 @@ import { allBets } from "./data/bets";
 import { PlaceBet } from "./components/place-bet";
 import { Bet } from "./models/bet";
 import Ticket from "./components/ticket";
+import * as BetsAPI from "./services/bets-api";
+import { UserInfo } from "./models/user";
+import { generateTicketNumber } from "./utils/ticket-num";
 
 function App() {
   const [bets, setBets] = useState<Bet[]>(allBets);
   const [betsSubmitted, setBetsSubmitted] = useState<boolean>(false);
+  const [user, setUser] = useState<UserInfo>({name: '', email: ''});
+  const [ticketNumber, setTicketNumber] = useState<string>('');
 
   const changeAmount = (index: number) => (newAmount: number) => {
     const newbets = [...bets];
@@ -25,12 +30,19 @@ function App() {
     setBets(newBets);
   };
 
+  const changeName = (name: string) => { setUser({...user, name })}
+  const changeEmail = (email: string) => { setUser({...user, email })}
+
   
   /**
    * Calculate ticket code
    */
   const placeBets = () => {
+    const ticketNum = generateTicketNumber();
+    setTicketNumber(ticketNum);
+    BetsAPI.placeBets(bets, user, ticketNum);
     setBetsSubmitted(true);
+    
   }
 
   const betTiles = allBets.map((cbet, index) => {
@@ -59,7 +71,7 @@ function App() {
             {betTiles}
           </Container>
         </main>
-        <PlaceBet bets={bets} onPlaceBets={placeBets}/>
+        <PlaceBet bets={bets} onPlaceBets={placeBets} onChangeEmail={changeEmail} onChangeName={changeName}/>
       </div>
     );
   } else {
@@ -67,7 +79,7 @@ function App() {
       <div>
         <main>
           <Container fluid className="vh-100">
-            <Ticket bets={bets} ticketNumber="A23-S3D" userInfo={ {name: 'Alex Aylwin', email: 'alex.aylwin@gmail.com'}} />
+            <Ticket bets={bets} ticketNumber={ticketNumber} userInfo={ {name: 'Alex Aylwin', email: 'alex.aylwin@gmail.com'}} />
           </Container>
         </main>
       </div>
