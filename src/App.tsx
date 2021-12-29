@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 import { Col, Container, Row } from "react-bootstrap";
@@ -10,12 +10,19 @@ import Ticket from "./components/ticket";
 import * as BetsAPI from "./services/bets-api";
 import { UserInfo } from "./models/user";
 import { generateTicketNumber } from "./utils/ticket-num";
+import { Pool } from "./models/pool";
+import { getPools } from "./services/pool-api";
 
 function App() {
   const [bets, setBets] = useState<Bet[]>(allBets);
   const [betsSubmitted, setBetsSubmitted] = useState<boolean>(false);
   const [user, setUser] = useState<UserInfo>({name: '', email: ''});
   const [ticketNumber, setTicketNumber] = useState<string>('');
+  const [pools, setPools] = useState<Pool[]>([]);
+  
+  useEffect( () => {
+    getPools().then( (newPools) => setPools(newPools))
+  });
 
   const changeAmount = (index: number) => (newAmount: number) => {
     const newbets = [...bets];
@@ -42,16 +49,18 @@ function App() {
     setTicketNumber(ticketNum);
     BetsAPI.placeBets(bets, user, ticketNum);
     setBetsSubmitted(true);
-    
   }
 
   const betTiles = allBets.map((cbet, index) => {
     const rowClass = index % 2 == 0 ? "bet-row--light" : "bet-row--dark";
+    const pool = pools.find( (p) => p.betName == cbet.name );
+    
     return (
       <BetTile
         bet={cbet}
         rowClass={rowClass}
         key={index}
+        pool={pool}
         onChangeAmount={changeAmount(index)}
         onChangeSelection={changeBetSelection(index)}
       ></BetTile>
