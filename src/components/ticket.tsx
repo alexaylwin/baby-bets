@@ -27,22 +27,23 @@ const Ticket = (props: {
   const formattedDate = `
     ${
       today.getMonth() + 1
-    }/${today.getDate()}/${today.getFullYear()}@${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    }/${today.getDate()}/${today.getFullYear()} at ${today.getHours()}:${today.getMinutes()}`;
 
   return (
     <Row className="h-100">
       <Col className="ticket d-flex align-items-center justify-content-center">
         <div className="border border-3 p-5">
           <h2>Your bets have been recorded!</h2>
-          <h2>Your ticket number is: </h2>
-          <h2>
-            {props.ticketNumber} - {props.userInfo.name} - {formattedDate}
-          </h2>
+          <h4>Your ticket number is: </h4>
+          <h4>
+            {props.ticketNumber}
+          </h4>
+          <h4>Placed by {props.userInfo.name}</h4>
+          <h4>On {formattedDate} </h4> 
           <p className="lead py-2">
-            To validate your bet, etransfer the total bet amount of ${betTotal}{" "}
-            to Ash at ash.aylwin@gmail.com
+            To validate your bet, <b>e-transfer the total bet amount of ${betTotal}</b> to Ash at ash.aylwin@gmail.com
           </p>
-          <h3>Placed Bets:</h3>
+          <h4>Bet Summary:</h4>
           <Table>
             <thead>
               <tr>
