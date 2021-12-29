@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Row, Col, Form, InputGroup } from "react-bootstrap";
 import { Bet } from "../models/bet";
 import { Pool } from "../models/pool";
+import { calcEstimatedPayout } from '../utils/bets';
 
 export const BetTile = (props: {
   bet: Bet;
@@ -21,21 +22,6 @@ export const BetTile = (props: {
       {opt.label}
     </option>
   ));
-
-  const calcEstimatedPayout = (
-    betAmount: number,
-    betOption: string
-  ): number => {
-    //Calc payout
-    if(props.pool == undefined) return 0;
-
-    let betsForOption = props.pool?.betsPerOption.find( (bo) => bo.option == betOption)?.bets;
-    betsForOption = betsForOption == undefined ? (betAmount / 2) : (betsForOption + (betAmount / 2))
-    console.log(betsForOption);
-    const payoutPerShare = (props.pool?.totalPool + betAmount) / betsForOption;
-    console.log(payoutPerShare);
-    return +(payoutPerShare * (betAmount / 2)).toFixed(2);
-  };
 
   return (
     <Row className={props.rowClass + " py-2"}>
@@ -72,7 +58,7 @@ export const BetTile = (props: {
             Increments of ${props.bet.increment}
           </span>
           <br />
-          Est. payout: ${calcEstimatedPayout(selectedAmount, selectedOption)}
+          Est. payout: ${calcEstimatedPayout(selectedAmount, selectedOption, props.pool)}
         </Col>
       </Row>
     </Row>
