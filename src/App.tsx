@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.scss";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, } from "react-bootstrap";
 import { BetTile } from "./components/bet-tile";
-import { allBets } from "./data/bets";
 import { PlaceBet } from "./components/place-bet";
-import { Bet } from "./models/bet";
 import Ticket from "./components/ticket";
+import { Bet } from "./models/bet";
+import { allBets } from "./data/bets";
 import * as BetsAPI from "./services/bets-api";
 import { UserInfo } from "./models/user";
 import { generateTicketNumber } from "./utils/ticket-num";
 import { Pool } from "./models/pool";
 import { getPools } from "./services/pool-api";
+import { Header } from "./components/header";
 
 function App() {
   const [bets, setBets] = useState<Bet[]>(allBets);
@@ -19,9 +19,13 @@ function App() {
   const [user, setUser] = useState<UserInfo>({name: '', email: ''});
   const [ticketNumber, setTicketNumber] = useState<string>('');
   const [pools, setPools] = useState<Pool[]>([]);
+  const [initData, setInitData] = useState<boolean>(false);
   
   useEffect( () => {
-    getPools().then( (newPools) => setPools(newPools))
+    if(!initData) {
+      getPools().then( (newPools) => setPools(newPools))
+      setInitData(true);
+    }
   });
 
   const changeBetAmount = (index: number) => (newAmount: number) => {
@@ -72,11 +76,7 @@ function App() {
       <div>
         <main>
           <Container fluid>
-            <Row className="border-bottom border-3">
-              <Col>
-                <h1>Baby Bets</h1>
-              </Col>
-            </Row>
+            <Header></Header>
             {betTiles}
           </Container>
         </main>

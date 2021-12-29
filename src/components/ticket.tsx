@@ -55,7 +55,7 @@ const Ticket = (props: {
             </thead>
             <tbody>{betDetails}</tbody>
           </Table>
-          * Payouts may change as more bets are placed.
+          * Payouts will change as more bets are placed.
           <p className="lead py-2 visually-hidden">
             To change your bet, enter your ticket number and name on the home
             screen.

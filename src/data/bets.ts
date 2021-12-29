@@ -94,7 +94,7 @@ export const allBets: Bet[] = [
                 label: '7lbs 13oz to 8lbs 2oz'
             },
             {
-                name: '8lb9oz',
+                name: '8lb9',
                 label: '8lbs 3oz to 8lb 9oz'
             },
             {

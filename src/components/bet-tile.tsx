@@ -18,7 +18,7 @@ export const BetTile = (props: {
   const options = [{ name: "", label: "" }, ...props.bet.options];
 
   const betOptions = options.map((opt, index) => (
-    <option key={index} value={opt.label}>
+    <option key={index} value={opt.name}>
       {opt.label}
     </option>
   ));
