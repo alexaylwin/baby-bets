@@ -7,7 +7,7 @@ export const allBets: Bet[] = [
         increment: 2,
         odds: '1/2',
         pool: 100,
-        description: 'Gender of the baby at birth.',
+        description: 'Will it be a boy or girl?',
         amount: 0,
         options: [
             {
@@ -22,7 +22,7 @@ export const allBets: Bet[] = [
         
     },{
         name: 'BirthTime',
-        displayName: 'Time of birth',
+        displayName: 'Time of delivery',
         increment: 2,
         odds: '1/6',
         pool: 100,
@@ -55,377 +55,91 @@ export const allBets: Bet[] = [
             }
         ]
     },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
+        name: 'BabyName',
+        displayName: 'Baby\'s Name',
         increment: 2,
-        odds: '1/6',
+        odds: '1/2',
         pool: 100,
-        description: 'The minute that the birth occurs, in 10 minute increments',
+        description: 'What letter will the baby\'s name start with?',
         amount: 0,
         options: [
             {
-                name: '0',
-                label: '0-9'
+                name: 'A',
+                label: 'A'
             },
             {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
+                name: 'BZ',
+                label: 'B-Z'
             }
         ]
     },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
+        name: 'BabyWeight',
+        displayName: 'Baby\'s Weight',
         increment: 2,
         odds: '1/6',
         pool: 100,
         amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
+        description: 'The baby\'s weight, in 5oz increments',
         options: [
             {
-                name: '0',
-                label: '0-9'
+                name: 'lt7',
+                label: 'less than 7lbs'
             },
             {
-                name: '10',
-                label: '10-19'
+                name: '7lb5',
+                label: '7lbs to 7lbs 5oz'
             },
             {
-                name: '20',
-                label: '20-29'
+                name: '7lb12',
+                label: '7lbs 6oz to 7lbs 12oz'
             },
             {
-                name: '30',
-                label: '30-39'
+                name: '8lb2',
+                label: '7lbs 13oz to 8lbs 2oz'
             },
             {
-                name: '40',
-                label: '40-49'
+                name: '8lb9oz',
+                label: '8lbs 3oz to 8lb 9oz'
             },
             {
-                name: '50',
-                label: '50-59'
+                name: 'gt8lb10',
+                label: 'more than 8lb 9oz'
             }
         ]
     },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
+        name: 'AlexPassOut',
+        displayName: 'Alex Passes Out',
         increment: 2,
-        odds: '1/6',
+        odds: '1/2',
         pool: 100,
         amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
+        description: 'Alex passes out during the birth or c-section',
         options: [
             {
-                name: '0',
-                label: '0-9'
+                name: 'Yes',
+                label: 'Yes'
             },
             {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
+                name: 'No',
+                label: 'No'
             }
         ]
     },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
+        name: 'AlexCutsCord',
+        displayName: 'Alex cuts the cord',
         increment: 2,
-        odds: '1/6',
+        odds: '1/2',
         pool: 100,
         amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
+        description: 'Alex cuts the cord',
         options: [
             {
-                name: '0',
-                label: '0-9'
+                name: 'Yes',
+                label: 'Yes'
             },
             {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
-            }
-        ]
-    },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
-        increment: 2,
-        odds: '1/6',
-        pool: 100,
-        amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
-        options: [
-            {
-                name: '0',
-                label: '0-9'
-            },
-            {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
-            }
-        ]
-    },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
-        increment: 2,
-        odds: '1/6',
-        pool: 100,
-        amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
-        options: [
-            {
-                name: '0',
-                label: '0-9'
-            },
-            {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
-            }
-        ]
-    },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
-        increment: 2,
-        odds: '1/6',
-        pool: 100,
-        amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
-        options: [
-            {
-                name: '0',
-                label: '0-9'
-            },
-            {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
-            }
-        ]
-    },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
-        increment: 2,
-        odds: '1/6',
-        pool: 100,
-        amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
-        options: [
-            {
-                name: '0',
-                label: '0-9'
-            },
-            {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
-            }
-        ]
-    },{
-        name: 'BirthTime',
-        displayName: 'Time of birth',
-        increment: 2,
-        odds: '1/6',
-        pool: 100,
-        amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
-        options: [
-            {
-                name: '0',
-                label: '0-9'
-            },
-            {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
-            }
-        ]
-    },{
-        name: 'BirthTime',
-        displayName: 'Time of birth secondlast',
-        increment: 2,
-        odds: '1/6',
-        pool: 100,
-        amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
-        options: [
-            {
-                name: '0',
-                label: '0-9'
-            },
-            {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
-            }
-        ]
-    },{
-        name: 'BirthTime',
-        displayName: 'Time of birth last',
-        increment: 2,
-        odds: '1/6',
-        pool: 100,
-        amount: 0,
-        description: 'The minute that the birth occurs, in 10 minute increments',
-        options: [
-            {
-                name: '0',
-                label: '0-9'
-            },
-            {
-                name: '10',
-                label: '10-19'
-            },
-            {
-                name: '20',
-                label: '20-29'
-            },
-            {
-                name: '30',
-                label: '30-39'
-            },
-            {
-                name: '40',
-                label: '40-49'
-            },
-            {
-                name: '50',
-                label: '50-59'
+                name: 'No',
+                label: 'No'
             }
         ]
     }
