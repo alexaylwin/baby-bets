@@ -79,7 +79,7 @@ function App() {
       <div>
         <main>
           <Container fluid className="vh-100">
-            <Ticket bets={bets} ticketNumber={ticketNumber} userInfo={ {name: 'Alex Aylwin', email: 'alex.aylwin@gmail.com'}} />
+            <Ticket bets={bets} ticketNumber={ticketNumber} userInfo={user} />
           </Container>
         </main>
       </div>
