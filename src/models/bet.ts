@@ -3,7 +3,7 @@ export type Bet = {
     displayName: string,
     increment: number,
     odds: string,
-    pool: number,
+    estimatedPayout?: number;
     description: string,
     options: BetOption[],
     selectedBet?: string,

@@ -15,7 +15,7 @@ const Ticket = (props: {
             {bet.displayName} - {bet.selectedBet}
           </td>
           <td> ${bet.amount}</td>
-          <td> ${bet.pool} </td>
+          <td> ${bet.odds} </td>
         </tr>
       );
     }

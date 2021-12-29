@@ -6,7 +6,6 @@ export const allBets: Bet[] = [
         displayName: 'Gender',
         increment: 2,
         odds: '1/2',
-        pool: 0,
         description: 'Will it be a boy or girl?',
         amount: 0,
         options: [
@@ -25,7 +24,6 @@ export const allBets: Bet[] = [
         displayName: 'Time of delivery',
         increment: 2,
         odds: '1/6',
-        pool: 0,
         amount: 0,
         description: 'The minute that the birth occurs, in 10 minute increments',
         options: [
@@ -59,7 +57,6 @@ export const allBets: Bet[] = [
         displayName: 'Baby\'s Name',
         increment: 2,
         odds: '1/2',
-        pool: 0,
         description: 'What letter will the baby\'s name start with?',
         amount: 0,
         options: [
@@ -77,7 +74,6 @@ export const allBets: Bet[] = [
         displayName: 'Baby\'s Weight',
         increment: 2,
         odds: '1/6',
-        pool: 0,
         amount: 0,
         description: 'The baby\'s weight, in 5oz increments',
         options: [
@@ -111,7 +107,6 @@ export const allBets: Bet[] = [
         displayName: 'Alex Passes Out',
         increment: 2,
         odds: '1/2',
-        pool: 0,
         amount: 0,
         description: 'Alex passes out during the birth or c-section',
         options: [
@@ -129,7 +124,6 @@ export const allBets: Bet[] = [
         displayName: 'Alex cuts the cord',
         increment: 2,
         odds: '1/2',
-        pool: 0,
         amount: 0,
         description: 'Alex cuts the cord',
         options: [
