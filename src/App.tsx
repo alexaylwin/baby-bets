@@ -24,7 +24,7 @@ function App() {
     getPools().then( (newPools) => setPools(newPools))
   });
 
-  const changeAmount = (index: number) => (newAmount: number) => {
+  const changeBetAmount = (index: number) => (newAmount: number) => {
     const newbets = [...bets];
     //@ts-ignore
     newbets[index].amount = newAmount;
@@ -61,7 +61,7 @@ function App() {
         rowClass={rowClass}
         key={index}
         pool={pool}
-        onChangeAmount={changeAmount(index)}
+        onChangeAmount={changeBetAmount(index)}
         onChangeSelection={changeBetSelection(index)}
       ></BetTile>
     );
