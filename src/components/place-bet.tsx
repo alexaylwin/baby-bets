@@ -25,7 +25,10 @@ export const PlaceBet = (props: {
     <footer className="footer mt-auto py-2 fixed-bottom border-top border-2">
       <Container>
         <Row>
-          <Col>Total: ${calcTotal(props.bets.map((b) => b.amount))}</Col>
+          <Col>
+          <span>
+              <b>Total: ${calcTotal(props.bets.map((b) => b.amount))}</b>
+          </span></Col>
         </Row>
         <Row className="py-3">
           <Col>
