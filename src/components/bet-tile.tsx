@@ -14,6 +14,7 @@ export const BetTile = (props: {
 }) => {
   const [selectedAmount, setSelectedAmount] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<string>('');
+  const [formErrors, setFormErrors] = useState({});
 
   const options = [{ name: "", label: "" }, ...props.bet.options];
 
@@ -39,6 +40,9 @@ export const BetTile = (props: {
             <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
               type="number"
+              step="2"
+              max="100"
+              min="0"
               placeholder="0"
               onChange={(e) =>
                 { props.onChangeAmount(Number.parseInt(e.target.value)); setSelectedAmount(parseInt(e.target.value)) }

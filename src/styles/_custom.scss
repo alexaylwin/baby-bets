@@ -22,3 +22,7 @@ body {
     padding-top: 10px;
     padding-bottom: 122px;
 }
+
+input:invalid {
+    border: 1px solid red;
+}
