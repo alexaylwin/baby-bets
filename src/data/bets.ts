@@ -20,6 +20,40 @@ export const allBets: Bet[] = [
         ],
         
     },{
+        name: 'BirthDate',
+        displayName: 'Date of birth',
+        increment: 2,
+        odds: '1/7',
+        amount: 0,
+        description: 'The day that the baby is born',
+        options: [
+            {
+                name: 'lt10',
+                label: '> Jan 10th'
+            },
+            {
+                name: '11',
+                label: 'Jan 11th'
+            },            {
+                name: '12',
+                label: 'Jan 12th'
+            },            {
+                name: '13',
+                label: 'Jan 13th'
+            },            {
+                name: '14',
+                label: 'Jan 14th'
+            },            {
+                name: '15',
+                label: 'Jan 15th'
+            },            {
+                name: '16',
+                label: 'Jan 16th'
+            }
+
+        ]
+    }
+    ,{
         name: 'BirthTime',
         displayName: 'Time of delivery',
         increment: 2,
@@ -109,23 +143,6 @@ export const allBets: Bet[] = [
         odds: '1/2',
         amount: 0,
         description: 'Alex passes out during the birth or c-section',
-        options: [
-            {
-                name: 'Yes',
-                label: 'Yes'
-            },
-            {
-                name: 'No',
-                label: 'No'
-            }
-        ]
-    },{
-        name: 'AlexCutsCord',
-        displayName: 'Alex cuts the cord',
-        increment: 2,
-        odds: '1/2',
-        amount: 0,
-        description: 'Alex cuts the cord',
         options: [
             {
                 name: 'Yes',

@@ -1,9 +1,16 @@
-
-import { useState } from 'react';
-import { Row, Col, Form, InputGroup } from "react-bootstrap";
+import { useState } from "react";
+import {
+  Row,
+  Col,
+  Form,
+  InputGroup,
+  Button,
+  OverlayTrigger,
+} from "react-bootstrap";
 import { Bet } from "../models/bet";
 import { Pool } from "../models/pool";
-import { calcEstimatedPayout } from '../utils/bets';
+import { calcEstimatedPayout } from "../utils/bets";
+import { BetRatio } from "./bet-ratio";
 
 export const BetTile = (props: {
   bet: Bet;
@@ -13,8 +20,9 @@ export const BetTile = (props: {
   pool: Pool | undefined;
 }) => {
   const [selectedAmount, setSelectedAmount] = useState<number>(0);
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState<string>("");
   const [formErrors, setFormErrors] = useState({});
+  const [oddsVisible, setOddsVisible] = useState<boolean>(false);
 
   const options = [{ name: "", label: "" }, ...props.bet.options];
 
@@ -30,7 +38,10 @@ export const BetTile = (props: {
         <Col>{props.bet.displayName}</Col>
         <Col>
           <Form.Select
-            onChange={(e) => { props.onChangeSelection(e.target.value); setSelectedOption(e.target.value) }}
+            onChange={(e) => {
+              props.onChangeSelection(e.target.value);
+              setSelectedOption(e.target.value);
+            }}
           >
             {betOptions}
           </Form.Select>
@@ -44,9 +55,10 @@ export const BetTile = (props: {
               max="100"
               min="0"
               placeholder="0"
-              onChange={(e) =>
-                { props.onChangeAmount(Number.parseInt(e.target.value)); setSelectedAmount(parseInt(e.target.value)) }
-              }
+              onChange={(e) => {
+                props.onChangeAmount(Number.parseInt(e.target.value));
+                setSelectedAmount(parseInt(e.target.value));
+              }}
             ></Form.Control>
           </InputGroup>
         </Col>
@@ -54,15 +66,26 @@ export const BetTile = (props: {
       <Row>
         <Col>{props.bet.description}</Col>
         <Col>
-          Odds: {props.bet.odds} <br />
-          Pool: ${props.pool?.totalPool}{" "}
+          <p>
+            Total Pool: ${props.pool?.totalPool}{" "}
+          </p>
+          <OverlayTrigger
+            trigger="click"
+            placement="right"
+            overlay={BetRatio({ bet: props.bet, pool: props.pool })}
+          >
+            <Button variant={ (() => oddsVisible ? "outline-danger": "outline-secondary")()} size="sm" onClick={() => setOddsVisible(!oddsVisible)}>
+              {(() => oddsVisible ? "Close Info": "Odds Info")()}
+            </Button>
+          </OverlayTrigger> <br />
         </Col>
         <Col>
           <span className="text-small">
             Increments of ${props.bet.increment}
           </span>
           <br />
-          Est. payout: ${calcEstimatedPayout(selectedAmount, selectedOption, props.pool)}
+          Est. payout: $
+          {calcEstimatedPayout(selectedAmount, selectedOption, props.pool)}
         </Col>
       </Row>
     </Row>
