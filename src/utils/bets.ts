@@ -8,6 +8,7 @@ export const calcEstimatedPayout = (
   //Calc payout
   if (pool == undefined) return 0;
   if (betOption == undefined || betOption == '') return 0;
+  if (isNaN(betAmount)) betAmount = 0;
 
   let betsForOption = pool?.betsPerOption.find(
     (bo) => bo.option == betOption
