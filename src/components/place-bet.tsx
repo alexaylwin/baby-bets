@@ -12,13 +12,15 @@ import { UserInfo } from "../models/user";
 
 export const PlaceBet = (props: {
   bets: Bet[];
-  onPlaceBets: () => void,
-  onChangeName: (name: string) => void,
-  onChangeEmail: (email: string) => void
+  onPlaceBets: () => void;
+  onChangeName: (name: string) => void;
+  onChangeEmail: (email: string) => void;
 }) => {
-
   const calcTotal = (amounts: number[]): number => {
-    return amounts.reduce((p, c) => p + c, 0);
+    return amounts.reduce((p, c) => {
+      if(isNaN(c)) c = 0;
+      return p + c
+    }, 0);
   };
 
   return (
@@ -26,19 +28,25 @@ export const PlaceBet = (props: {
       <Container>
         <Row>
           <Col>
-          <span>
+            <span>
               <b>Total: ${calcTotal(props.bets.map((b) => b.amount))}</b>
-          </span></Col>
+            </span>
+          </Col>
         </Row>
         <Row className="py-3">
           <Col>
-            <FormControl id="name" placeholder="Name" size="sm" onChange={(e) => props.onChangeName(e.target.value)}></FormControl>
+            <FormControl
+              id="name"
+              placeholder="Enter your name"
+              size="sm"
+              onChange={(e) => props.onChangeName(e.target.value)}
+            ></FormControl>
             <Form.Control
               type="email"
               id="email"
-              placeholder="Email"
+              placeholder="Enter your email"
               size="sm"
-              onChange={(e) => props.onChangeEmail(e.target.value) }
+              onChange={(e) => props.onChangeEmail(e.target.value)}
             ></Form.Control>
           </Col>
           <Col className="text-center">
