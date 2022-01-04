@@ -25,7 +25,7 @@ const mockResponse = [
 ]
 
 export const getPools = async (): Promise<Pool[]> => {
-  //return true;
+  //return new Promise( (v) => v(mockResponse) );
   const io = axios.create(
     {
       baseURL: 'https://t6hendx94f.execute-api.us-east-2.amazonaws.com',
@@ -35,7 +35,6 @@ export const getPools = async (): Promise<Pool[]> => {
       }
     }
   )
-  //const resp = await io.get('/pools');
-  return new Promise( (v) => v(mockResponse) );
+  const resp = await io.get('/pools');
+  return resp.data;
 }
-
