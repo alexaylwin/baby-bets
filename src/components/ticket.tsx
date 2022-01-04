@@ -7,7 +7,7 @@ const Ticket = (props: {
   userInfo: { name: string; email: string };
 }) => {
   const betDetails = props.bets.map((bet: Bet, index: number) => {
-    if (bet.amount > 0 && bet.selectedBet != undefined && bet.selectedBet != '') {
+    if (bet.amount > 0 && bet.selectedBet !== undefined && bet.selectedBet !== '') {
       return (
         <tr className="bet-row" key={index}>
           <td> {index + 1} </td>
@@ -15,7 +15,7 @@ const Ticket = (props: {
             {bet.displayName} - {bet.selectedBet}
           </td>
           <td> ${bet.amount}</td>
-          <td> ${bet.odds} </td>
+          <td> ${bet.estimatedPayout} </td>
         </tr>
       );
     }

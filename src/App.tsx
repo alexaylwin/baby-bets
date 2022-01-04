@@ -12,6 +12,7 @@ import { generateTicketNumber } from "./utils/ticket-num";
 import { Pool } from "./models/pool";
 import { getPools } from "./services/pool-api";
 import { Header } from "./components/header";
+import { calcEstimatedPayout } from "./utils/bets";
 
 function App() {
   const [bets, setBets] = useState<Bet[]>(allBets);
@@ -52,6 +53,8 @@ function App() {
     const ticketNum = generateTicketNumber();
     setTicketNumber(ticketNum);
     BetsAPI.placeBets(bets, user, ticketNum);
+    //@ts-ignore
+    const newBets = bets.map( (b) => b.estimatedPayout = calcEstimatedPayout(b.amount, b.selectedBet, pools[pools.findIndex( p => p.betName === b.name)]))
     setBetsSubmitted(true);
   }
 
