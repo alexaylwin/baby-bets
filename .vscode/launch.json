@@ -4,12 +4,42 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "pwa-chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+      {
+        "type": "aws-sam",
+        "request": "direct-invoke",
+        "name": "baby-bets:babybets_write-bet/index.handler (nodejs14.x)",
+        "invokeTarget": {
+          "target": "code",
+          "projectRoot": "${workspaceFolder}/",
+          "lambdaHandler": "babybets_write-bet/index.handler"
+        },
+        "lambda": {
+          "runtime": "nodejs14.x",
+          "payload": {},
+          "environmentVariables": {}
         }
+      },
+      {
+        "type": "aws-sam",
+        "request": "direct-invoke",
+        "name": "babybets_write-bet:index.handler (nodejs14.x)",
+        "invokeTarget": {
+          "target": "code",
+          "projectRoot": "${workspaceFolder}/babybets_write-bet",
+          "lambdaHandler": "index.handler"
+        },
+        "lambda": {
+          "runtime": "nodejs14.x",
+          "payload": {},
+          "environmentVariables": {}
+        }
+      },
+      {
+        "type": "pwa-chrome",
+        "request": "launch",
+        "name": "Launch Chrome against localhost",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}"
+      }
     ]
 }
