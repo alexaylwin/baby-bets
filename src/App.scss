@@ -1,8 +1,4 @@
-$font-size-base: 0.80rem;
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "~bootstrap/scss/bootstrap";
-@import "./styles/custom"
+$font-size-base: 0.80rem;

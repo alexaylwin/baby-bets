@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./App.scss";
-import { Container, } from "react-bootstrap";
 import { BetTile } from "./components/bet-tile";
 import { PlaceBet } from "./components/place-bet";
 import Ticket from "./components/ticket";
@@ -77,22 +75,17 @@ function App() {
   if(!betsSubmitted) {
     return (
       <div>
-        <main>
-          <Container fluid>
-            <Header></Header>
-            {betTiles}
-          </Container>
+        <main className="bg-purple-300 h-screen grid grid-rows-1 place-content-evenly">
+            <div>
+              {betTiles}
+            </div>
         </main>
-        <PlaceBet bets={bets} onPlaceBets={placeBets} onChangeEmail={changeEmail} onChangeName={changeName}/>
       </div>
     );
   } else {
     return (
       <div>
         <main>
-          <Container fluid className="vh-100">
-            <Ticket bets={bets} ticketNumber={ticketNumber} userInfo={user} />
-          </Container>
         </main>
       </div>
     )
