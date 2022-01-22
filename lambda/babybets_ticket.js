@@ -114,12 +114,14 @@ exports.handler = async (event, context) => {
         });
 
         const totalPayout = betPayouts.reduce( (prev, curr) => prev + curr.payout, 0);
+        const totalAmountBet = betPayouts.reduce ( (prev, curr) => prev + curr.amount, 0 );
 
         body += JSON.stringify({
           ticketNum: ticket.ticketNum,
           user: ticket.user,
           bets: betPayouts,
-          totalPayout
+          totalPayout,
+          totalAmountBet
         })
         break;
       default:
