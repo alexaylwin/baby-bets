@@ -56,18 +56,21 @@ export const BetTile = (props: {
       <div className="grid grid-cols-2 w-full">{betOptions}</div>
 
       <div className="grid grid-cols-2 place-items-center w-full mt-10 ">
-        <div>
-          <label htmlFor="amount" className="inline
-          px-2 py-2 border border-solid border-gay-500 bg-gray-700 rounded font-bold text-white">$</label>
+        <div className=" rounded">
+          <label htmlFor="amount" className="inline leading-normal
+          px-2 py-2 0 bg-gray-700 
+          border border-solid border-gray-500 border-r-0 
+          rounded rounded-r-none 
+          font-bold text-white">$</label>
           <input 
             id="amount"
             type="number"
             className="form-control 
-            w-20
+            w-20 h-10
             px-3 py-1.5 
             text-base 
-            rounded
-            border border-solid border-gray-500
+            border border-solid border-gray-500 border-l-0
+            rounded rounded-l-none 
             m-0
             transition
             ease-in-out
@@ -77,7 +80,7 @@ export const BetTile = (props: {
                             props.onChangeAmount(Number.parseInt(e.target.value));
                             setSelectedAmount(parseInt(e.target.value));
                           }}></input>
-          </div>
+        </div>
         <span className="w-40 mp-10
         border border-solid border-white rounded px-3 py-1.5 text-white font-bold">
           Est. Payout: {calcEstimatedPayout(selectedAmount,  options[selectedOption]?.name, props.pool)}
