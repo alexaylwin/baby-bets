@@ -15,9 +15,8 @@ const calcPayout = (
   let betsForOption = pool?.betsPerOption.find(
     (bo) => bo.option === betOption
   )?.bets;
-  betsForOption =
-    betsForOption === undefined ? betAmount / 2 : betsForOption + betAmount / 2;
-  const payoutPerShare = (pool?.totalPool + betAmount) / betsForOption;
+
+  const payoutPerShare = (pool.totalPool) / betsForOption;
   return +(payoutPerShare * (betAmount / 2)).toFixed(2);
 };
 
@@ -71,6 +70,10 @@ exports.handler = async (event, context) => {
          *  - Determine which bets were 'won'
          *  - For each won bet, find the
          */
+        const allTickets = event.queryStringParameters.all;
+        if(allTickets) {
+
+        }
         const ticketNum = event.queryStringParameters.num;
         const ticketQuery = {
           TableName: "babybets_bets",
