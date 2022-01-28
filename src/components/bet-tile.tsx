@@ -66,7 +66,7 @@ export const BetTile = (props: {
             id="amount"
             type="number"
             className="form-control 
-            w-20 h-10
+            w-20
             px-3 py-1.5 
             text-base 
             border border-solid border-gray-500 border-l-0
