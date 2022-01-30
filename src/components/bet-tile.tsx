@@ -1,16 +1,7 @@
 import { useState } from "react";
-import {
-  Row,
-  Col,
-  Form,
-  InputGroup,
-  Button,
-  OverlayTrigger,
-} from "react-bootstrap";
 import { Bet } from "../models/bet";
 import { Pool } from "../models/pool";
 import { calcEstimatedPayout } from "../utils/bets";
-import { BetRatio } from "./bet-ratio";
 
 export const BetTile = (props: {
   bet: Bet;

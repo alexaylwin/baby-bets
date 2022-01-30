@@ -1,12 +1,4 @@
 import { useState } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  Row,
-} from "react-bootstrap";
 import { Bet } from "../models/bet";
 import { UserInfo } from "../models/user";
 
