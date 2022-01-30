@@ -10,12 +10,21 @@ export const BetTile = (props: {
   onChangeSelection: (newSelection: string) => void;
   pool: Pool | undefined;
 }) => {
+  const {
+    pool, bet, rowClass, onChangeAmount, onChangeSelection
+  } = props;
+
   const [selectedAmount, setSelectedAmount] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<number>(-1);
   const [formErrors, setFormErrors] = useState({});
   const [oddsVisible, setOddsVisible] = useState<boolean>(false);
 
-  const options = [...props.bet.options];
+  const options = [...bet.options];
+
+  const betPercentages = pool?.betsPerOption.map( (bo, index) => 
+  {
+    return {opt: bo.option, percent: ((bo.amount / pool.totalPool) * 100).toFixed(2)}
+  });
 
   const betOptions = options.map((opt, index) => (
     <div className="flex flex-col">
@@ -42,7 +51,7 @@ export const BetTile = (props: {
         {opt.label}
       </button>
       <span className="text-xs display-block max-w-sm content-center text-center">
-        Current bets: 34%
+        Current bets: { betPercentages?.find( (v) => v.opt === opt.name)?.percent }%
       </span>
     </div>
   ));
@@ -50,7 +59,7 @@ export const BetTile = (props: {
   return (
     <div className="grid place-items-center px-4">
       <div className="font-bold text-white py-6 text-2xl">
-        {props.bet.description}
+        {bet.description}
       </div>
       <div className="grid grid-cols-2 w-full">{betOptions}</div>
 
@@ -66,7 +75,7 @@ export const BetTile = (props: {
             className="flex-shrink flex-grow flex-auto leading-normal w-px border h-10 border-gray-500 rounded rounded-l-none px-3 relative focus:border-blue focus:shadow"
             placeholder="Amount"
             onChange={(e) => {
-              props.onChangeAmount(Number.parseInt(e.target.value));
+              onChangeAmount(Number.parseInt(e.target.value));
               setSelectedAmount(parseInt(e.target.value));
             }}
           ></input>
@@ -80,7 +89,7 @@ export const BetTile = (props: {
           {calcEstimatedPayout(
             selectedAmount,
             options[selectedOption]?.name,
-            props.pool
+            pool
           )}
         </span>
       </div>
