@@ -22,8 +22,12 @@ export const PlaceBet = (props: {
       leading-10
       flex flex-auto">
       <div className="flex flex-col place-content-center px-4 py-8 w-56">
-        <span className="font-bold text-2xl text-white">
-          Total Bets: ${calcTotal(props.bets.map((b) => b.amount))}
+        <span className="text-2xl text-white pb-3">
+          Total Bets: <span className="font-bold">${calcTotal(props.bets.map((b) => b.amount))}</span>
+        </span>
+        <hr />
+        <span className="text-white">
+          Total est. payout: <span className="font-bold">$37.12</span>
         </span>
       </div>
       <div className="grow flex flex-col place-content-center">
