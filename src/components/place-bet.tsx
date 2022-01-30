@@ -22,8 +22,8 @@ export const PlaceBet = (props: {
       leading-10
       grid grid-cols-2 w-full content-center">
       <div className="flex flex-col place-content-center px-4 py-8">
-        <span className="font-bold text-2xl">
-          Total: ${calcTotal(props.bets.map((b) => b.amount))}
+        <span className="font-bold text-2xl text-white">
+          Total Bets: ${calcTotal(props.bets.map((b) => b.amount))}
         </span>
       </div>
       <div className="flex flex-col place-content-center">
