@@ -13,7 +13,11 @@ export const Header = () => {
   const [tipsShow, setTipsShow] = useState(false);
 
   return (
-    <header className="pb-2 mb-8 pt-2 pl-4 pr-4 grid grid-cols-3 border-b-2">
+    <header className="mb-8 pb-2 pt-2 pl-4 pr-4 
+      grid grid-cols-3 
+      border-b-2
+      sticky top-0 w-full z-30
+      bg-purple-300">
       <div className="col-span-2">
         <h1 className="text-2xl text-white">Baby Bets</h1>
       </div>
