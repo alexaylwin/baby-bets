@@ -20,13 +20,13 @@ export const PlaceBet = (props: {
       border-t-2 border-black 
       fixed inset-x-0 bottom-0 
       leading-10
-      grid grid-cols-2 w-full content-center">
-      <div className="flex flex-col place-content-center px-4 py-8">
+      flex flex-auto">
+      <div className="flex flex-col place-content-center px-4 py-8 w-56">
         <span className="font-bold text-2xl text-white">
           Total Bets: ${calcTotal(props.bets.map((b) => b.amount))}
         </span>
       </div>
-      <div className="flex flex-col place-content-center">
+      <div className="grow flex flex-col place-content-center">
         <button
           className="py-2 
           px-4 
