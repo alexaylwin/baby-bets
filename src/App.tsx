@@ -80,6 +80,7 @@ function App() {
               {betTiles}
             </div>
         </main>
+        <PlaceBet bets={bets} onPlaceBets={placeBets} onChangeEmail={changeEmail} onChangeName={changeName}/>
       </div>
     );
   } else {
