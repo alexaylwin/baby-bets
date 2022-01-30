@@ -78,10 +78,8 @@ function App() {
     return (
       <div className="bg-purple-300 h-screen">
         <Header></Header>
-        <main className=" grid grid-rows-1 place-content-evenly">
-            <div>
-              {betTiles}
-            </div>
+        <main className=" grid grid-rows-1 place-content-evenly w-full">
+          {betTiles}
         </main>
         <PlaceBet bets={bets} onPlaceBets={placeBets} onChangeEmail={changeEmail} onChangeName={changeName}/>
       </div>
