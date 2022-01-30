@@ -19,6 +19,8 @@ function App() {
   const [ticketNumber, setTicketNumber] = useState<string>('');
   const [pools, setPools] = useState<Pool[]>([]);
   const [initData, setInitData] = useState<boolean>(false);
+  const [step, setStep] = useState<number>(0);
+
   
   useEffect( () => {
     if(!initData) {
@@ -74,8 +76,9 @@ function App() {
 
   if(!betsSubmitted) {
     return (
-      <div>
-        <main className="bg-purple-300 h-screen grid grid-rows-1 place-content-evenly">
+      <div className="bg-purple-300">
+        <Header></Header>
+        <main className="h-screen grid grid-rows-1 place-content-evenly">
             <div>
               {betTiles}
             </div>

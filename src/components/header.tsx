@@ -13,22 +13,34 @@ export const Header = () => {
   const [tipsShow, setTipsShow] = useState(false);
 
   return (
-    <Row className="border-bottom border-3 pb-2">
-      <Col>
-        <h1>Baby Bets</h1>
-      </Col>
+    <header className="pb-2 mb-8 pt-2 pl-4 pr-4 grid grid-cols-3 border-b-2">
+      <div className="col-span-2">
+        <h1 className="text-2xl text-white">Baby Bets</h1>
+      </div>
+      <div className="grid grid-cols-2 justify-end text-right">
+        <button> About </button>
+        <button> FAQ </button>
+      </div>
+    </header>
+  )
 
-      <Col className="d-flex justify-content-end">
-        <Button className="me-2" onClick={() => setFaqShow(true)}>
-          About
-        </Button>
-        <Faq show={faqShow} onHide={() => setFaqShow(false)}></Faq>
+  // return (
+  //   <Row className="border-bottom border-3 pb-2">
+  //     <Col>
+  //       <h1>Baby Bets</h1>
+  //     </Col>
 
-        <Button onClick={() => setTipsShow(true)}>Bet Tips</Button>
-        <Tips show={tipsShow} onHide={() => setTipsShow(false)}></Tips>
-      </Col>
-    </Row>
-  );
+  //     <Col className="d-flex justify-content-end">
+  //       <Button className="me-2" onClick={() => setFaqShow(true)}>
+  //         About
+  //       </Button>
+  //       <Faq show={faqShow} onHide={() => setFaqShow(false)}></Faq>
+
+  //       <Button onClick={() => setTipsShow(true)}>Bet Tips</Button>
+  //       <Tips show={tipsShow} onHide={() => setTipsShow(false)}></Tips>
+  //     </Col>
+  //   </Row>
+  // );
 };
 
 const Faq = (props: any) => {
