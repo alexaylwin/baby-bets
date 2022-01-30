@@ -29,7 +29,8 @@ export const BetTile = (props: {
   const betOptions = options.map((opt, index) => (
     <div className="flex flex-col">
       <button
-        className={`py-2 
+        className={
+          `py-2 
           px-4 
           rounded 
           m-3 
@@ -38,7 +39,10 @@ export const BetTile = (props: {
           shadow-md
           max-w-sm
           text-white ` +
-          (index == selectedOption ? 'bg-purple-900' : 'bg-purple-500 hover:bg-purple-700')}
+          (index == selectedOption
+            ? "bg-purple-900"
+            : "bg-purple-500 hover:bg-purple-700")
+        }
         key={index}
         onClick={() => {
           setSelectedOption(index);
@@ -46,22 +50,42 @@ export const BetTile = (props: {
       >
         {opt.label}
       </button>
-      <span className="text-xs display-block max-w-sm content-center text-center">Current bets: 34%</span>
+      <span className="text-xs display-block max-w-sm content-center text-center">
+        Current bets: 34%
+      </span>
     </div>
   ));
 
   return (
     <div className="grid place-items-center px-4">
-      <div className="font-bold text-white py-6 text-2xl">{props.bet.description}</div>
+      <div className="font-bold text-white py-6 text-2xl">
+        {props.bet.description}
+      </div>
       <div className="grid grid-cols-2 w-full">{betOptions}</div>
 
       <div className="grid grid-cols-2 place-items-center w-full mt-10 ">
-        <div className=" rounded">
+        <div className="flex flex-wrap items-stretch w-28 relative">
+          <div className="flex -mr-px">
+            <span className="font-bold text-white bg-gray-700 -tracking-normal flex items-center leading-normal rounded rounded-r-none border border-r-0 border-gray-500 px-3 whitespace-no-wrap text-sm">
+              $
+            </span>
+          </div>
+          <input
+            type="number"
+            className="flex-shrink flex-grow flex-auto leading-normal w-px border h-10 border-gray-500 rounded rounded-l-none px-3 relative focus:border-blue focus:shadow"
+            placeholder="Amount"
+            onChange={(e) => {
+              props.onChangeAmount(Number.parseInt(e.target.value));
+              setSelectedAmount(parseInt(e.target.value));
+            }}
+          ></input>
+        </div>
+        {/* <div className=" rounded">
           <label htmlFor="amount" className="inline leading-normal
-          px-2 py-2 0 bg-gray-700 
+          px-2 py-2 0  
           border border-solid border-gray-500 border-r-0 
           rounded rounded-r-none 
-          font-bold text-white">$</label>
+          ">$</label>
           <input 
             id="amount"
             type="number"
@@ -80,10 +104,17 @@ export const BetTile = (props: {
                             props.onChangeAmount(Number.parseInt(e.target.value));
                             setSelectedAmount(parseInt(e.target.value));
                           }}></input>
-        </div>
-        <span className="w-40 mp-10
-        border border-solid border-white rounded px-3 py-1.5 text-white font-bold">
-          Est. Payout: {calcEstimatedPayout(selectedAmount,  options[selectedOption]?.name, props.pool)}
+        </div> */}
+        <span
+          className="w-40 mp-10
+        border border-solid border-white rounded px-3 py-1.5 text-white font-bold"
+        >
+          Est. Payout:{" "}
+          {calcEstimatedPayout(
+            selectedAmount,
+            options[selectedOption]?.name,
+            props.pool
+          )}
         </span>
       </div>
     </div>
