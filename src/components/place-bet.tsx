@@ -24,43 +24,12 @@ export const PlaceBet = (props: {
   };
 
   return (
-    <footer className="footer mt-auto py-2 fixed-bottom border-top border-2">
-      <Container>
-        <Row>
-          <Col>
-            <span>
-              <b>Total: ${calcTotal(props.bets.map((b) => b.amount))}</b>
-            </span>
-          </Col>
-        </Row>
-        <Row className="py-3">
-          <Col>
-            <FormControl
-              id="name"
-              placeholder="Enter your name"
-              size="sm"
-              onChange={(e) => props.onChangeName(e.target.value)}
-            ></FormControl>
-            <Form.Control
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              size="sm"
-              onChange={(e) => props.onChangeEmail(e.target.value)}
-            ></Form.Control>
-          </Col>
-          <Col className="text-center">
-            <Button
-              variant="success"
-              size="lg"
-              className=""
-              onClick={props.onPlaceBets}
-            >
-              Place Bets
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+    <footer className="border-t-2 border-black">
+      <div>
+        <span>
+          <b>Total: ${calcTotal(props.bets.map((b) => b.amount))}</b>
+        </span>
+      </div>
     </footer>
   );
 };
