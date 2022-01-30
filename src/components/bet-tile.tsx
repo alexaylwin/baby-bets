@@ -72,10 +72,11 @@ export const BetTile = (props: {
           ></input>
         </div>
         <span
-          className="w-40 mp-10
-        border border-solid border-white rounded px-3 py-1.5 text-white font-bold"
+          className="w-42 mp-10
+        border border-solid border-white rounded 
+        px-3 py-1.5 text-white font-bold"
         >
-          Est. Payout:{" "}
+          Est. Payout: $
           {calcEstimatedPayout(
             selectedAmount,
             options[selectedOption]?.name,
