@@ -80,31 +80,6 @@ export const BetTile = (props: {
             }}
           ></input>
         </div>
-        {/* <div className=" rounded">
-          <label htmlFor="amount" className="inline leading-normal
-          px-2 py-2 0  
-          border border-solid border-gray-500 border-r-0 
-          rounded rounded-r-none 
-          ">$</label>
-          <input 
-            id="amount"
-            type="number"
-            className="form-control 
-            w-20
-            px-3 py-1.5 
-            text-base 
-            border border-solid border-gray-500 border-l-0
-            rounded rounded-l-none 
-            m-0
-            transition
-            ease-in-out
-            bg-clip-padding
-            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Amount"
-            onChange={(e) => {
-                            props.onChangeAmount(Number.parseInt(e.target.value));
-                            setSelectedAmount(parseInt(e.target.value));
-                          }}></input>
-        </div> */}
         <span
           className="w-40 mp-10
         border border-solid border-white rounded px-3 py-1.5 text-white font-bold"
