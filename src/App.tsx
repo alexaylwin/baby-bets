@@ -78,7 +78,7 @@ function App() {
     return (
       <div className="bg-purple-400 h-screen">
         <Header></Header>
-        <main className=" grid grid-rows-1 place-content-evenly w-full">
+        <main className="flex flex-cols place-content-evenly w-full">
           {betTiles}
         </main>
         <PlaceBet bets={bets} onPlaceBets={placeBets} onChangeEmail={changeEmail} onChangeName={changeName}/>

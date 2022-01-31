@@ -57,7 +57,7 @@ export const BetTile = (props: {
   ));
 
   return (
-    <div className="grid place-items-center px-4 w-full">
+    <div className="grid grid-rows-1 place-items-center px-4 w-11/12">
       <h2 className="font-bold text-white py-6 text-2xl">
         {bet.description}
       </h2>
