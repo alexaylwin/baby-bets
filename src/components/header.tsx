@@ -17,7 +17,7 @@ export const Header = () => {
       grid grid-cols-3 
       border-b-2
       sticky top-0 w-full z-30
-      bg-purple-300">
+      bg-purple-400">
       <div className="col-span-2">
         <h1 className="text-2xl text-white">Baby Bets</h1>
       </div>

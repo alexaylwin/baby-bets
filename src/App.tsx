@@ -76,7 +76,7 @@ function App() {
 
   if(!betsSubmitted) {
     return (
-      <div className="bg-purple-300 h-screen">
+      <div className="bg-purple-400 h-screen">
         <Header></Header>
         <main className=" grid grid-rows-1 place-content-evenly w-full">
           {betTiles}

@@ -41,7 +41,7 @@ export const BetTile = (props: {
           text-white ` +
           (index == selectedOption
             ? "bg-purple-900"
-            : "bg-purple-500 hover:bg-purple-700")
+            : "bg-purple-600 hover:bg-purple-800")
         }
         key={index}
         onClick={() => {
@@ -57,13 +57,14 @@ export const BetTile = (props: {
   ));
 
   return (
-    <div className="grid place-items-center px-4">
-      <div className="font-bold text-white py-6 text-2xl">
+    <div className="grid place-items-center px-4 w-full">
+      <h2 className="font-bold text-white py-6 text-2xl">
         {bet.description}
-      </div>
+      </h2>
       <div className="grid grid-cols-2 w-full">{betOptions}</div>
 
       <div className="grid grid-cols-2 place-items-center w-full mt-10 ">
+
         <div className="flex flex-wrap items-stretch w-28 relative">
           <div className="flex -mr-px">
             <span className="font-bold text-white bg-gray-700 -tracking-normal flex items-center leading-normal rounded rounded-r-none border border-r-0 border-gray-500 px-3 whitespace-no-wrap text-sm">
@@ -80,8 +81,9 @@ export const BetTile = (props: {
             }}
           ></input>
         </div>
+
         <span
-          className="w-42 mp-10
+          className="w-42
         border border-solid border-white rounded 
         px-3 py-1.5 text-white font-bold"
         >

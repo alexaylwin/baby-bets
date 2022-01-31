@@ -17,13 +17,13 @@ export const PlaceBet = (props: {
 
   return (
     <footer className="
-      border-t-2 border-black 
+      border-t-2 border-white 
       fixed inset-x-0 bottom-0 
       leading-10
       flex flex-auto">
       <div className="flex flex-col place-content-center px-4 py-8 w-56">
         <span className="text-2xl text-white pb-3">
-          Total Bets: <span className="font-bold">${calcTotal(props.bets.map((b) => b.amount))}</span>
+          Total Bet: <span className="font-bold">${calcTotal(props.bets.map((b) => b.amount))}</span>
         </span>
         <hr />
         <span className="text-white">
@@ -40,9 +40,9 @@ export const PlaceBet = (props: {
           uppercase
           shadow-md
           max-w-sm
-          text-white bg-purple-500 hover:bg-purple-700"
+          text-white bg-purple-600 hover:bg-purple-700"
         >
-          Next Bet
+          Next Bet (1/6)
         </button>
       </div>
     </footer>
