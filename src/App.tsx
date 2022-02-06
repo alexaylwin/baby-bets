@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BetTile } from "./components/bet-tile";
-import { PlaceBet } from "./components/place-bet";
+import { Footer } from "./components/footer";
 import Ticket from "./components/ticket";
 import { Bet } from "./models/bet";
 import { allBets } from "./data/bets";
@@ -11,6 +11,7 @@ import { Pool } from "./models/pool";
 import { getPools } from "./services/pool-api";
 import { Header } from "./components/header";
 import { calcEstimatedPayout } from "./utils/bets";
+import { Start } from "./components/start";
 
 function App() {
   const [bets, setBets] = useState<Bet[]>(allBets);
@@ -20,6 +21,7 @@ function App() {
   const [pools, setPools] = useState<Pool[]>([]);
   const [initData, setInitData] = useState<boolean>(false);
   const [step, setStep] = useState<number>(0);
+  const [currentView, setCurrrentView] = useState<any>( (<Start></Start>))
 
   
   useEffect( () => {
@@ -44,6 +46,35 @@ function App() {
 
   const changeName = (name: string) => { setUser({...user, name })}
   const changeEmail = (email: string) => { setUser({...user, email })}
+  const nextView = () => {
+    const betTiles = allBets.map((cbet, index) => {
+      const pool = pools.find( (p) => p.betName == cbet.name );
+      
+      return (
+        <BetTile
+          bet={cbet}
+          key={index}
+          pool={pool}
+          onChangeAmount={changeBetAmount(index)}
+          onChangeSelection={changeBetSelection(index)}
+        ></BetTile>
+      );
+    });
+
+    setStep(step+1);
+    switch (step+1) {
+      case 0:
+        setCurrrentView((<Start></Start>))
+         break;
+      case betTiles.length + 1:
+        setCurrrentView((<Ticket bets={bets} ticketNumber='alex' userInfo={ {name: 'alex', email: 'alex'}}></Ticket>));
+          break;
+      default:
+        console.log(step);
+        console.log(betTiles)
+        setCurrrentView(betTiles[step]);
+    }
+   };
 
   
   /**
@@ -57,41 +88,16 @@ function App() {
     const newBets = bets.map( (b) => b.estimatedPayout = calcEstimatedPayout(b.amount, b.selectedBet, pools[pools.findIndex( p => p.betName === b.name)]))
     setBetsSubmitted(true);
   }
-
-  const betTiles = allBets.map((cbet, index) => {
-    const rowClass = index % 2 == 0 ? "bet-row--light" : "bet-row--dark";
-    const pool = pools.find( (p) => p.betName == cbet.name );
-    
-    return (
-      <BetTile
-        bet={cbet}
-        rowClass={rowClass}
-        key={index}
-        pool={pool}
-        onChangeAmount={changeBetAmount(index)}
-        onChangeSelection={changeBetSelection(index)}
-      ></BetTile>
-    );
-  });
-
-  if(!betsSubmitted) {
-    return (
-      <div className="bg-purple-400 h-screen">
-        <Header></Header>
-        <main className="flex flex-cols place-content-evenly w-full">
-          {betTiles}
-        </main>
-        <PlaceBet bets={bets} onPlaceBets={placeBets} onChangeEmail={changeEmail} onChangeName={changeName}/>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <main>
-        </main>
-      </div>
-    )
-  }
+  
+  return (
+    <div className="bg-purple-400 h-screen">
+      <Header></Header>
+      <main className="flex flex-cols place-content-evenly w-full">
+        {currentView}
+      </main>
+      <Footer bets={bets} onNextClick={nextView}/>
+    </div>
+  );
 }
 
 export default App;
