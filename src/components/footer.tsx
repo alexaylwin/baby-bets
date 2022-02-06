@@ -20,7 +20,7 @@ export const Footer = (props: {
       border-t-2 border-white 
       fixed inset-x-0 bottom-0 
       leading-10
-      flex flex-auto">
+      flex flex-auto max-w-2xl">
       <div className="flex flex-col place-content-center px-4 py-8 w-56">
         <span className="text-2xl text-white pb-3">
           Total Bet: <span className="font-bold">${calcTotal(bets.map((b) => b.amount))}</span>

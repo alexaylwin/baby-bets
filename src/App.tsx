@@ -92,12 +92,14 @@ function App() {
   }
   
   return (
-    <div className="bg-purple-400 h-screen">
-      <Header></Header>
-      <main className="flex flex-cols place-content-evenly w-full">
-        {currentView}
-      </main>
-      <Footer bets={bets} onNextClick={nextView} step={step}/>
+    <div className="bg-purple-400">
+      <div className="h-screen max-w-2xl m-auto">
+        <Header></Header>
+        <main className="flex flex-cols place-content-evenly w-full">
+          {currentView}
+        </main>
+        <Footer bets={bets} onNextClick={nextView} step={step}/>
+      </div>
     </div>
   );
 }
