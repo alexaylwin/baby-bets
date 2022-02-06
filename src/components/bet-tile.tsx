@@ -5,12 +5,11 @@ import { calcEstimatedPayout } from "../utils/bets";
 
 export const BetTile = (props: {
   bet: Bet;
-  rowClass: string;
   onChangeAmount: (newAmount: number) => void;
   onChangeSelection: (newSelection: string) => void;
   pool: Pool | undefined;
 }) => {
-  const { pool, bet, rowClass, onChangeAmount, onChangeSelection } = props;
+  const { pool, bet, onChangeAmount, onChangeSelection } = props;
 
   const [selectedAmount, setSelectedAmount] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<number>(-1);
@@ -46,6 +45,7 @@ export const BetTile = (props: {
         key={index}
         onClick={() => {
           setSelectedOption(index);
+          onChangeSelection(opt.name);
         }}
       >
         {opt.label}
