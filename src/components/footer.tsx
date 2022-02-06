@@ -2,11 +2,9 @@ import { useState } from "react";
 import { Bet } from "../models/bet";
 import { UserInfo } from "../models/user";
 
-export const PlaceBet = (props: {
+export const Footer = (props: {
   bets: Bet[];
-  onPlaceBets: () => void;
-  onChangeName: (name: string) => void;
-  onChangeEmail: (email: string) => void;
+  onNextClick: () => void
 }) => {
   const calcTotal = (amounts: number[]): number => {
     return amounts.reduce((p, c) => {
@@ -41,6 +39,7 @@ export const PlaceBet = (props: {
           shadow-md
           max-w-sm
           text-white bg-purple-600 hover:bg-purple-700"
+          onClick={ () => { props.onNextClick();} }
         >
           Next Bet (1/6)
         </button>
