@@ -1,8 +1,8 @@
 export const Start = (props: any) => {
 
   return (
-    <Start>
+    <div>
       Place your bets for Ash &amp; Alex's new baby!
-    </Start>
+      </div>
   )
 }
