@@ -46,22 +46,22 @@ function App() {
 
   const changeName = (name: string) => { setUser({...user, name })}
   const changeEmail = (email: string) => { setUser({...user, email })}
-  const nextView = () => {
-    const betTiles = allBets.map((cbet, index) => {
-      const pool = pools.find( (p) => p.betName == cbet.name );
-      
-      return (
-        <BetTile
-          bet={cbet}
-          key={index}
-          pool={pool}
-          onChangeAmount={changeBetAmount(index)}
-          onChangeSelection={changeBetSelection(index)}
-        ></BetTile>
-      );
-    });
 
-    setStep(step+1);
+  const betTiles = allBets.map((cbet, index) => {
+    const pool = pools.find( (p) => p.betName == cbet.name );
+    
+    return (
+      <BetTile
+        bet={cbet}
+        key={index}
+        pool={pool}
+        onChangeAmount={changeBetAmount(index)}
+        onChangeSelection={changeBetSelection(index)}
+      ></BetTile>
+    );
+  });
+
+  const nextView = () => {
     switch (step+1) {
       case 0:
         setCurrrentView((<Start></Start>))
@@ -74,6 +74,8 @@ function App() {
         console.log(betTiles)
         setCurrrentView(betTiles[step]);
     }
+
+    setStep(step+1);
    };
 
   
@@ -95,7 +97,7 @@ function App() {
       <main className="flex flex-cols place-content-evenly w-full">
         {currentView}
       </main>
-      <Footer bets={bets} onNextClick={nextView}/>
+      <Footer bets={bets} onNextClick={nextView} step={step}/>
     </div>
   );
 }

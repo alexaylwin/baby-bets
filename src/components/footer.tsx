@@ -3,9 +3,11 @@ import { Bet } from "../models/bet";
 import { UserInfo } from "../models/user";
 
 export const Footer = (props: {
-  bets: Bet[];
-  onNextClick: () => void
+  bets: Bet[],
+  onNextClick: () => void,
+  step: number
 }) => {
+  const {bets, onNextClick, step} = props;
   const calcTotal = (amounts: number[]): number => {
     return amounts.reduce((p, c) => {
       if (isNaN(c)) c = 0;
@@ -21,7 +23,7 @@ export const Footer = (props: {
       flex flex-auto">
       <div className="flex flex-col place-content-center px-4 py-8 w-56">
         <span className="text-2xl text-white pb-3">
-          Total Bet: <span className="font-bold">${calcTotal(props.bets.map((b) => b.amount))}</span>
+          Total Bet: <span className="font-bold">${calcTotal(bets.map((b) => b.amount))}</span>
         </span>
         <hr />
         <span className="text-white">
@@ -39,9 +41,9 @@ export const Footer = (props: {
           shadow-md
           max-w-sm
           text-white bg-purple-600 hover:bg-purple-700"
-          onClick={ () => { props.onNextClick();} }
+          onClick={ () => { onNextClick();} }
         >
-          Next Bet (1/6)
+          Next Bet ({step+1}/6)
         </button>
       </div>
     </footer>
